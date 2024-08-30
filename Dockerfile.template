@@ -1,13 +1,9 @@
-# contains all dependencies for running Cypress.io Test Runner
-# https://on.cypress.io/docker and https://on.cypress.io/ci
-#
-FROM cmcg/bamboo-node:%VERSION%
+FROM cmcg/bamboo-node-ngsw:%VERSION%
 LABEL org.opencontainers.image.authors="cmcgroarty@idesignconsulting.com"
 
 USER root:root
 
-RUN npm --version
-RUN npm install -g --force firebase-tools@^13 fireway@^1 json@^11
+RUN npm install -g firebase-tools@^13 fireway@^1
 
 RUN rm -rf /tmp/* \
 && node -p process.versions \
